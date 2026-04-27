@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unblocked Games</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      width: 90%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    /* Glowing Title Style */
+    h1 {
+      color: #fff; /* White text color */
+      text-shadow: 
+        0 0 10px #ff0000, /* Red glow */
+        0 0 20px #ff0000, /* Red glow */
+        0 0 30px #ff0000, /* Red glow */
+        0 0 40px #ff8c00, /* Orange glow */
+        0 0 50px #ff8c00, /* Orange glow */
+        0 0 75px #ff8c00, /* Orange glow */
+        0 0 100px #ff8c00; /* Stronger orange glow */
+      font-size: 48px; /* Larger font size */
+      font-weight: bold; /* Bold font for impact */
+      text-transform: uppercase; /* Uppercase text */
+      letter-spacing: 2px; /* Slightly spaced letters */
+      animation: glow 1.5s infinite alternate; /* Animation to make the glow pulse */
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 
+          0 0 10px #ff0000, 
+          0 0 20px #ff0000, 
+          0 0 30px #ff0000, 
+          0 0 40px #ff8c00, 
+          0 0 50px #ff8c00, 
+          0 0 75px #ff8c00, 
+          0 0 100px #ff8c00;
+      }
+      100% {
+        text-shadow: 
+          0 0 20px #ff0000, 
+          0 0 40px #ff0000, 
+          0 0 60px #ff0000, 
+          0 0 80px #ff8c00, 
+          0 0 100px #ff8c00, 
+          0 0 150px #ff8c00, 
+          0 0 200px #ff8c00;
+      }
+    }
+
+    /* Iframe Container Style */
+    #iframe-container {
+      margin-top: 20px;
+      width: 100%;
+      height: 500px;
+      border: 2px solid #ccc;
+      background-color: #fff;
+    }
+    #iframe-container iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Game List Style */
+    #game-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    #game-list li {
+      background-color: #4CAF50;
+      color: white;
+      margin: 10px 0;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    #game-list li:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>cash and ridges games</h1>
+
+    <!-- Game List -->
+    <ul id="game-list">
+      <!-- Predefined game items will be inserted here -->
+    </ul>
+
+    <!-- Iframe Container -->
+    <div id="iframe-container">
+      <iframe id="game-iframe" src="" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Predefined list of game URLs
+    const gameList = [
+      { name: 'Gn', url: 'https://social-lebron.github.io/gn-math.github.iotmoney/' },
+      { name: 'lebron', url: 'https://lebro293.github.io/goodnite/' },
+      { name: 'codys shack', url: 'https://hammy-dotco.github.io/codys-shack-games/projects.html' },
+    ];
+
+    // Function to render the game list
+    function renderGameList() {
+      const listContainer = document.getElementById("game-list");
+      listContainer.innerHTML = '';
+      gameList.forEach((game) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = game.name;
+        listItem.onclick = () => loadGame(game.url);
+        listContainer.appendChild(listItem);
+      });
+    }
+
+    // Function to load the game URL into the iframe
+    function loadGame(url) {
+      document.getElementById("game-iframe").src = url;
+    }
+
+    // Initial call to render the list
+    renderGameList();
+  </script>
+
+</body>
+</html>
