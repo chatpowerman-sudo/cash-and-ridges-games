@@ -26,15 +26,16 @@
       padding: 30px 20px;
     }
 
-    /* Glowing Title */
+    /* Glowing and Rainbow Title */
     h1 {
       font-size: 48px;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #fff;
-      text-shadow: 0 0 10px #ff6a00, 0 0 20px #ff6a00, 0 0 30px #ff6a00;
-      animation: glow 1.5s ease-in-out infinite alternate;
+      background-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowGlow 3s linear infinite, glow 1.5s ease-in-out infinite alternate;
       margin-bottom: 40px;
     }
 
@@ -45,6 +46,11 @@
       100% {
         text-shadow: 0 0 25px #ff6a00, 0 0 40px #ff6a00, 0 0 50px #ff6a00;
       }
+    }
+
+    @keyframes rainbowGlow {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
     }
 
     /* Game List Styles */
