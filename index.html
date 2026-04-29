@@ -75,6 +75,20 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     }
 
+    /* Rainbow effect for Cheesy Dih */
+    .rainbow-text {
+      background-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 2s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes rainbow {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
     /* Iframe Container */
     #iframe-container {
       width: 100%;
@@ -145,13 +159,14 @@
   </div>
 
   <script>
-    // Updated game list with BitLife and Hammy
+    // Updated game list with Cheesy Dih
     const gameList = [
       { name: 'Gn', url: 'https://social-lebron.github.io/gn-math.github.iotmoney/' },
       { name: 'Lebron', url: 'https://lebro293.github.io/goodnite/' },
       { name: "Cody's Shack", url: 'https://hammy-dotco.github.io/codys-shack-games/projects.html' },
       { name: 'BitLife', url: 'https://hammy-dotco.github.io/gamesite69/g/bitlife' },
-      { name: 'Hammy', url: 'https://hammy-dotco.github.io/gamesite69/' } <!-- NEW GAME ADDED -->
+      { name: 'Hammy', url: 'https://hammy-dotco.github.io/gamesite69/' },
+      { name: 'Cheesy Dih 🧀', url: 'https://example.com/cheesy-dih', rainbow: true } // NEW GAME
     ];
 
     // Render game list
@@ -160,7 +175,11 @@
       listContainer.innerHTML = '';
       gameList.forEach((game) => {
         const listItem = document.createElement('li');
-        listItem.textContent = game.name;
+        if (game.rainbow) {
+          listItem.innerHTML = `<span class="rainbow-text">${game.name}</span>`;
+        } else {
+          listItem.textContent = game.name;
+        }
         listItem.addEventListener('click', () => loadGame(game.url));
         listContainer.appendChild(listItem);
       });
