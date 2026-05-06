@@ -4,17 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cash and Ridges Games</title>
+
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #1a1a2e;
       margin: 0;
       padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
       color: #fff;
     }
 
@@ -27,23 +26,11 @@
 
     h1 {
       font-size: 48px;
-      font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 2px;
       background-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: rainbowGlow 3s linear infinite, glow 1.5s ease-in-out infinite alternate;
-      margin-bottom: 40px;
-    }
-
-    @keyframes glow {
-      0% {
-        text-shadow: 0 0 10px #ff6a00, 0 0 20px #ff6a00, 0 0 30px #ff6a00;
-      }
-      100% {
-        text-shadow: 0 0 25px #ff6a00, 0 0 40px #ff6a00, 0 0 50px #ff6a00;
-      }
+      animation: rainbowGlow 3s linear infinite;
     }
 
     @keyframes rainbowGlow {
@@ -54,7 +41,6 @@
     #game-list {
       list-style: none;
       padding: 0;
-      margin: 0 auto 30px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 15px;
@@ -62,20 +48,15 @@
 
     #game-list li {
       background-color: #3a3a4b;
-      color: white;
       padding: 15px;
       cursor: pointer;
       border-radius: 10px;
-      font-size: 18px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
     }
 
     #game-list li:hover {
       background-color: #ff6a00;
-      transform: scale(1.07);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+      transform: scale(1.05);
     }
 
     .rainbow-text {
@@ -83,7 +64,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: rainbow 2s linear infinite;
-      display: inline-block;
     }
 
     @keyframes rainbow {
@@ -94,13 +74,11 @@
     #iframe-container {
       width: 100%;
       height: 550px;
-      border-radius: 12px;
-      overflow: hidden;
+      margin-top: 20px;
       position: relative;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
 
-    #iframe-container iframe {
+    iframe {
       width: 100%;
       height: 100%;
       border: none;
@@ -108,33 +86,17 @@
 
     #fullscreen-btn {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      background-color: #ff6a00;
+      top: 10px;
+      right: 10px;
+      background: #ff6a00;
       color: white;
       border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-size: 16px;
+      padding: 8px 12px;
       cursor: pointer;
-      z-index: 10;
-      font-weight: bold;
-    }
-
-    #fullscreen-btn:hover {
-      background-color: #ff8c00;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 36px;
-      }
-      #iframe-container {
-        height: 400px;
-      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="container">
@@ -143,47 +105,46 @@
     <ul id="game-list"></ul>
 
     <div id="iframe-container">
-      <button id="fullscreen-btn">Go Fullscreen</button>
-      <iframe id="game-iframe" src=""></iframe>
+      <button id="fullscreen-btn">Fullscreen</button>
+      <iframe id="game-iframe"></iframe>
     </div>
   </div>
 
   <script>
     const gameList = [
-      { name: 'Gn', url: 'https://social-lebron.github.io/gn-math.github.iotmoney/' },
-      { name: 'Lebron', url: 'https://lebro293.github.io/goodnite/' },
       { name: "Cody's Shack", url: 'https://hammy-dotco.github.io/codys-shack-games/projects.html' },
-      { name: 'BitLife', url: 'https://hammy-dotco.github.io/gamesite69/g/bitlife' },
-      { name: 'Hammy', url: 'https://hammy-dotco.github.io/gamesite69/' },
       { name: 'Cheesy Dih 🧀', url: 'https://mathley.wasmer.app/', rainbow: true },
-      { name: 'cs is back', url: 'https://sites.google.com/classrooms.management/view/cs-1-6?a' } // NEW GAME
+
+      { name: 'Website 1', url: 'https://scienceclassess.github.io/mathclassisnotgoodandsciencetooig/' },
+      { name: 'Website 2', url: 'https://scienceclassess.github.io/scienceclassesstuah/' },
+      { name: 'Website 3', url: 'https://scienceclassess.github.io/scienceisgreat22eliisnotallowed/' },
+      { name: 'Website 4', url: 'https://tristan-dez.github.io/mathgames/' }
     ];
 
     function renderGameList() {
       const listContainer = document.getElementById("game-list");
       listContainer.innerHTML = '';
+
       gameList.forEach((game) => {
-        const listItem = document.createElement('li');
+        const li = document.createElement('li');
+
         if (game.rainbow) {
-          listItem.innerHTML = `<span class="rainbow-text">${game.name}</span>`;
+          li.innerHTML = `<span class="rainbow-text">${game.name}</span>`;
         } else {
-          listItem.textContent = game.name;
+          li.textContent = game.name;
         }
-        listItem.addEventListener('click', () => loadGame(game.url));
-        listContainer.appendChild(listItem);
+
+        li.onclick = () => {
+          document.getElementById("game-iframe").src = game.url;
+        };
+
+        listContainer.appendChild(li);
       });
     }
 
-    function loadGame(url) {
-      document.getElementById("game-iframe").src = url;
-    }
-
-    function toggleFullscreen() {
-      const el = document.getElementById("iframe-container");
-      if (el.requestFullscreen) el.requestFullscreen();
-    }
-
-    document.getElementById("fullscreen-btn").addEventListener('click', toggleFullscreen);
+    document.getElementById("fullscreen-btn").onclick = () => {
+      document.getElementById("iframe-container").requestFullscreen();
+    };
 
     renderGameList();
   </script>
